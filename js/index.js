@@ -121,30 +121,21 @@ function renderPrice() {
   // Iteration 4: change the HTML of `<aside class="panel price">`
   let counter = 10
   if (state.pepperoni) {
-    document.querySelector('.btn-pepperoni').classList.contains('active')
-   } else {
-    document.querySelector('.btn-pepperoni')
+    counter ++
    }
    if (state.mushrooms) {
-    document.querySelector('.btn-mushrooms').classList.add('active')
-   } else {
-    document.querySelector('.btn-mushrooms').classList.remove('active')
-   }
+    counter ++
+   } 
    if (state.greenPeppers) {
-    document.querySelector('.btn-green-peppers').classList.add('active')
-   } else {
-    document.querySelector('.btn-green-peppers').classList.remove('active')
-   }
-   if (state.whiteSauce) {
-    document.querySelector('.btn-sauce').classList.add('active')
-   } else {
-    document.querySelector('.btn-sauce').classList.remove('active')
-   }
-   if (state.glutenFreeCrust) {
-    document.querySelector('.btn-crust').classList.add('active')
-   } else {
-    document.querySelector('.btn-crust').classList.remove('active')
-   }
+    counter ++
+   } 
+   if (!state.whiteSauce) {
+    counter += 3
+   } 
+   if (!state.glutenFreeCrust) {
+    counter += 5
+   } 
+   document.querySelector('.price strong').innerText = counter
   
 }
 
