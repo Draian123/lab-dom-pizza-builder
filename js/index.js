@@ -119,24 +119,46 @@ function renderButtons() {
 
 function renderPrice() {
   // Iteration 4: change the HTML of `<aside class="panel price">`
-  let counter = 10
+  const priceList = document.querySelector('.price ul')
+  const totalList = document.querySelector('.price strong')
+  let priceTotal = 10;
+        priceList.innerText = '';
+        totalList.innerText = `Total ${priceTotal}`;
   if (state.pepperoni) {
-    counter ++
-   }
-   if (state.mushrooms) {
-    counter ++
-   } 
-   if (state.greenPeppers) {
-    counter ++
-   } 
-   if (!state.whiteSauce) {
-    counter += 3
-   } 
-   if (!state.glutenFreeCrust) {
-    counter += 5
-   } 
-   document.querySelector('.price strong').innerText = counter
-  
+    const pepList = document.createElement('li'); //Add element
+    pepList.innerText = '$1 pepperoni'
+    priceList.appendChild(pepList)
+    priceTotal += 1
+    totalList.innerText = `Total $${priceTotal}`;
+  }
+  if (state.mushrooms) {
+    const musList = document.createElement('li'); //Add element
+    musList.innerText = '$1 mushrooms'
+    priceList.appendChild(musList)
+    priceTotal += 1
+    totalList.innerText = `Total $${priceTotal}`;
+  }
+  if (state.greenPeppers) {
+    const greList = document.createElement('li'); //Add element
+    greList.innerText = '$1 green peppers'
+    priceList.appendChild(greList)
+    priceTotal += 1
+    totalList.innerText = `Total $${priceTotal}`;
+  }
+  if (state.whiteSauce) {
+    const whiList = document.createElement('li'); //Add element
+    whiList.innerText = '$3 white sauce'
+    priceList.appendChild(whiList)
+    priceTotal += 3
+    totalList.innerText = `Total $${priceTotal}`;
+  }
+  if (state.glutenFreeCrust) {
+    const gluList = document.createElement('li'); //Add element
+    gluList.innerText = '$5 gluten-free crust'
+    priceList.appendChild(gluList)
+    priceTotal += 5
+    totalList.innerText = `Total $${priceTotal}`;
+  }
 }
 
 renderEverything();
